@@ -36,8 +36,8 @@ router.post("/", (req, res) => {
     body:req.body.body,
     UserId:req.session.user.id
   })
-    .then(newBlog => {
-      res.json(newBlog);
+    .then(newBlogPost => {
+      res.json(newBlogPost);
     })
     .catch(err => {
       console.log(err);

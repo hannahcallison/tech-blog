@@ -1,0 +1,15 @@
+<h4 id="postTitle">{{title}}</h4>
+<p>{{body}}</p>
+<p>Posted by <span class="text-info">{{User.username}}</span> on {{createdAt}}</p>
+<div>
+    {{#each Comments}}
+    <p>Posted by <span class="text-info">{{User.username}}</span> on {{createdAt}}</p>
+    <p>{{comment}}</p>
+</div>
+{{/each}}
+<form action="" id="commentForm">
+    <textarea id="comment" placeholder="Comment..."></textarea>
+    <button type="sumbit" class ="btn">Comment</button>
+</form>
+
+<script src="/js/blogpost.js"></script>

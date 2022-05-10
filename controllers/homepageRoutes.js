@@ -3,24 +3,24 @@ const router = express.Router();
 const {User,Blog} = require('../models');
 
 router.get("/",(req,res)=>{
-    Blog.findAll().then(blogs=>{
-        console.log(blogs)
-        const hbsBlogs = blogs.map(blog=>blog.get({plain:true}))
+    Blog.findAll().then(Blogs=>{
+        console.log(Blogs)
+        const hbsBlogs = Blogs.map(Blog=>Blog.get({plain:true}))
         console.log("==========")
         console.log(hbsBlogs)
         const loggedIn = req.session.user?true:false
-        res.render("home",{blogs:hbsBlogs,loggedIn,username:req.session.user?.username})
+        res.render("homepage",{Blogs:hbsBlogs,loggedIn,username:req.session.user?.username})
     })
 })
 
 router.get("/login",(req,res)=>{
     if(req.session.user){
-        return res.redirect("/profile")
+        return res.redirect("/user")
     }
     res.render("login")
 })
 
-router.get("/profile",(req,res)=>{
+router.get("/user",(req,res)=>{
     if(!req.session.user){
         return res.redirect("/login")
     }
@@ -32,7 +32,7 @@ router.get("/profile",(req,res)=>{
         console.log("=======")
         console.log(hbsData);
         hbsData.loggedIn = req.session.user?true:false
-        res.render("profile",hbsData)
+        res.render("user",hbsData)
     })
 })
 

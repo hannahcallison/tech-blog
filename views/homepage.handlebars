@@ -1,0 +1,7 @@
+<div>{{#each Blogs}}
+    <h3 id="blogTitle">{{title}}</h3>
+    <p>{{body}}</p>
+    <p>Posted by <span class="text-info">{{User.username}}</span> on {{createdAt}}</p>
+</div>
+{{/each}}
+<script src="/js/homepage.js"></script>

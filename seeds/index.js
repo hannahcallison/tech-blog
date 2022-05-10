@@ -1,36 +1,39 @@
 const sequelize = require("../config/connection")
 const {User,Blog} = require("../models")
 
-const users = [
+const Users = [
     {
-        username:"",
-        password:""
+        username:"Hannah",
+        password:"password1"
     },
     {
-        username:"",
-        password:""
+        username:"Arthur",
+        password:"password2"
     },
     {
-        username:"",
-        password:""
+        username:"Megan",
+        password:"password3"
     }
 ]
 
-const blogs = [
+const Blogs = [
     {
-        title:"",
-        body:"",
-        UserId:
+        id: 1,
+        title:"MacBoook Air",
+        body:"I love my MacBook Air. It has lasted for several years and continues to function perfectly.",
+        UserId:1
     },
     {
-        title:"",
-        body:"",
-        UserId:
+        id: 2,
+        title:"JavaScript",
+        body:"JavaScript is an awesome program. I love making my websites more interactive.",
+        UserId:2
     },
     {
-        title:"",
-        body:"",
-        UserId:
+        id: 3,
+        title:"HTML",
+        body:"HTML is great! Shout out to the tried and true.",
+        UserId:3
     }
 ]
 
@@ -40,7 +43,7 @@ const feedMe = async ()=>{
         await User.bulkCreate(users,{
             individualHooks:true
         });
-        await Blog.bulkCreate(blogs);
+        await Blog.bulkCreate(Blogs);
         process.exit(0);
     } catch(err){
         console.log(err)
