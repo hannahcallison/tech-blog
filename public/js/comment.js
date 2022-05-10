@@ -2,7 +2,6 @@ document.querySelector("#newComment").addEventListener("submit", (e) => {
     e.preventDefault();
     const commentObj = {
       description: document.querySelector("#comment").value.trim(),
-      // blog_id: blog.id,
     };
     console.log(commentObj);
     fetch("/api/comments", {

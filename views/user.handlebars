@@ -5,13 +5,12 @@
 </form>
 {{#each Blogs}}
 <div>
-    <input type="text" value=`{{title}}`>
-    <input type="text" value=`{{body}}`>
+    <input type="text">
+    <input type="text">
     <p>Posted on {{createdAt}}</p>
-    <button class="deleteBtn">Delete</button>
-    <button class="updateBtn">Update</button>
+    <button id="deleteBtn">Delete</button>
+    <button id="updateBtn">Update</button>
 </div>
-<hr>
 {{/each}}
 
 <script src="/js/user.js"></script>

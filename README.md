@@ -1,5 +1,7 @@
 # MVC Tech Blog
 
+## Lots of Flaws and Crashing still...
+
 ## Introduction 
 For this project we created a technology blog. By using the packages listed below we creates a CMS-style blog where users can publish, edit, and delete their posts as well as comment on blog posts made by other creators. 
 
@@ -19,7 +21,7 @@ Handlebars
 Session
 
 ## Usage 
-[Heroku Live Link](#)
+[Heroku Live Link](https://ancient-depths-34538.herokuapp.com/)
 
 ## License 
 
