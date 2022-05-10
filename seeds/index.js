@@ -40,7 +40,7 @@ const Blogs = [
 const feedMe = async ()=>{
     try{
         await sequelize.sync({force:true})
-        await User.bulkCreate(users,{
+        await User.bulkCreate(Users,{
             individualHooks:true
         });
         await Blog.bulkCreate(Blogs);

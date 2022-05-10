@@ -37,8 +37,9 @@ router.post("/", (req, res) => {
   User.create(req.body)
     .then(newUser => {
       req.session.user = {
-        id:newUser.id,
-        username:newUser.username
+        logged_in: true,
+        userid:  newUser.id,
+        username: newUser.username
       }
       res.json(newUser);
     })
@@ -58,8 +59,9 @@ router.post("/login", (req, res) => {
     }
     if(bcrypt.compareSync(req.body.password,foundUser.password)){
       req.session.user = {
-        id:foundUser.id,
-        username:foundUser.username
+        logged_in: true,
+        userid: foundUser.id,
+        username: foundUser.username
       }
       return res.json(foundUser)
     } else {

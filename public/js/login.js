@@ -11,8 +11,9 @@ document.querySelector("#loginForm").addEventListener("submit",e=>{
             "Content-Type":"application/json"
         }
     }).then(res=>{
+        console.log(res)
         if(res.ok){
-            location.href="/user"
+            document.location.replace("/user");
         } else {
             alert("trumpet sound")
         }

@@ -14,11 +14,15 @@ router.get("/", (req, res) => {
       res.status(500).json({ msg: "an error occured", err });
     });
 });
+
 //find one
 router.get("/:id", (req, res) => {
   Blog.findByPk(req.params.id,{})
     .then(dbBlog => {
-      res.json(dbBlog);
+      console.log(dbBlog)
+      // res.json(dbBlog);
+      const blog = dbBlog.get({plain:true})
+      res.render("post", blog)
     })
     .catch(err => {
       console.log(err);
