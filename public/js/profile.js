@@ -4,6 +4,7 @@ document.querySelector("#newBlogPost").addEventListener("submit",e=>{
         title:document.querySelector("#title").value,
         body:document.querySelector("#body").value,
     }
+    console.log(blogObj)
     fetch("/api/blogs",{
         method:"POST",
         body:JSON.stringify(blogObj),
@@ -19,9 +20,10 @@ document.querySelector("#newBlogPost").addEventListener("submit",e=>{
     })
 })
 
-
+const button = document.querySelector("#deleteBtn")
 button.addEventListener('click', e => {
-    fetch(`/api/blogs/${e.target.value}`, {
+    var delPostId = e.target.getAttribute('data-id')
+    fetch(`/api/blogs/${delPostId}`, {
         method: "DELETE"
     }).then(res => {
         if (res.ok) {
@@ -32,8 +34,8 @@ button.addEventListener('click', e => {
         })
     })
 
-
-button.addEventListener('click', e => {
+const uButton= document.querySelector("#updateBtn")
+uButton.addEventListener('click', e => {
     const blogObj = {
         title: e.target.parentNode.children[0].value,
         body: e.target.parentNode.children[1].value,

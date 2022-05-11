@@ -17,7 +17,12 @@ Blog.init({
     body: {
         type:DataTypes.TEXT,
         allowNull:false
-    }
+    },
+    // UserId: {
+    //     references: {
+    //         model: "User"
+    //     }
+    // }
 },{
     sequelize
 });

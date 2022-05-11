@@ -19,7 +19,7 @@ const Users = [
 const Blogs = [
     {
         id: 1,
-        title:"MacBoook Air",
+        title:"MacBook Air",
         body:"I love my MacBook Air. It has lasted for several years and continues to function perfectly.",
         UserId:1
     },

@@ -19,10 +19,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   Blog.findByPk(req.params.id,{})
     .then(dbBlog => {
-      console.log(dbBlog)
-      // res.json(dbBlog);
-      const blog = dbBlog.get({plain:true})
-      res.render("post", blog)
+      res.json(dbBlog);
     })
     .catch(err => {
       console.log(err);
@@ -32,13 +29,14 @@ router.get("/:id", (req, res) => {
 
 //create Blog
 router.post("/", (req, res) => {
+  console.log(req)
   if(!req.session.user){
     return res.status(401).json({msg:"ya gotta login to create a blog post!"})
 }
   Blog.create({
     title:req.body.title,
     body:req.body.body,
-    UserId:req.session.user.id
+    UserId:req.session.user.userid
   })
     .then(newBlogPost => {
       res.json(newBlogPost);

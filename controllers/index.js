@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const homepageRoutes = require("./homepageRoutes");
+router.use("/",homepageRoutes);
+
 const userRoutes = require("./userRoutes");
 router.use("/api/users",userRoutes);
 
@@ -9,8 +12,5 @@ router.use("/api/blogs",blogRoutes);
 
 const commentRoutes = require("./commentRoutes");
 router.use("/api/comments",commentRoutes);
-
-const homepageRoutes = require("./homepageRoutes");
-router.use("/",homepageRoutes);
 
 module.exports = router;
